@@ -80,16 +80,16 @@ class Transformer(JavaEnv):
                 key_list.append(create_detail)
         row_list += self._row_generator.get_additional_rows(create)
         key_list += self._key_generator.get_new_keys(create)
+        # deal with auto increment
+        self._row_generator.disable_autoincrement(create, row_list)
+        # deal with pk
+        key_list = self._key_generator.primary_to_unique(key_list)
+
         create_detail_list.clear()
         for row in row_list:
             create_detail_list.add(row)
         for key in key_list:
             create_detail_list.add(key)
-
-        # deal with auto increment
-        self._row_generator.disable_autoincrement(create, row_list)
-        # deal with pk
-        key_list = self._key_generator.primary_to_unique(key_list)
 
         # deal with table drop
         # choosing either of two generator is okay
