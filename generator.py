@@ -146,3 +146,6 @@ class KeyGenerator(Generator):
                     new_key_list.append(new_key)
                 else:
                     new_key_list.append(key)
+            return new_key_list
+        else:
+            return key_list
