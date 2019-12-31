@@ -140,8 +140,6 @@ class KeyGenerator(Generator):
             new_key_list = []
             for key in key_list:
                 if isinstance(key, self._primary_key_class):
-                    parent = key.getParent()
-                    print key
-                    new_key_list.append(self._key_sql_to_jclass(key.toString().replace('PRIMARY', 'UNIQUE'), parent))
+                    new_key_list.append(self._unique_key_class(self._key_class(key)))
                 else:
                     new_key_list.append(key)
