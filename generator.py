@@ -93,6 +93,7 @@ class KeyGenerator(Generator):
             return rows
 
     def _key_sql_to_jclass(self, key_sql, parent):
+        print key_sql
         key_parser = self._row_parser_class(key_sql)
         try:
             key = key_parser.parsePrimaryKey()
