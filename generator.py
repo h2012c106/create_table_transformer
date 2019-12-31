@@ -140,6 +140,9 @@ class KeyGenerator(Generator):
             new_key_list = []
             for key in key_list:
                 if isinstance(key, self._primary_key_class):
-                    new_key_list.append(self._unique_key_class(self._key_class(key)))
+                    new_key = self._unique_key_class()
+                    for col in key.getColumns():
+                        new_key.addColumn(col)
+                    new_key_list.append(new_key)
                 else:
                     new_key_list.append(key)
