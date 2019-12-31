@@ -1,0 +1,7 @@
+`canal_test_table` error: duplicate key name: ['`u_wh_code_sys_no`']
+`inv_lpn_history` error: duplicate key name: ['`u_wh_code_sys_no`']
+`canal_test_table_01` error: key `u_wh_code_sys_no` contains nonexistent row: ['`sys_no`']
+
+`canal_test_table`
+`inv_lpn_history`
+`canal_test_table_01`

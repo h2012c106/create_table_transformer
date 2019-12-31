@@ -1,0 +1,12 @@
+{
+  "additional_rows": [
+    "`DW_is_enabled` tinyint(1) NOT NULL DEFAULT '1'",
+    "`DW_update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+    "`DW_binlog_update_at` timestamp NOT NULL DEFAULT '1970-01-01 08:00:01'"
+  ],
+  "deprecated_rows": [],
+  "new_keys": [],
+  "use_old_keys": true,
+  "overwrite_old_table": true,
+  "disable_autoincrement": true
+}
