@@ -8,6 +8,7 @@ ADDITIONAL_ROWS_JSON_KEY = 'additional_rows'
 DEPRECATED_ROWS_JSON_KEY = 'deprecated_rows'
 NEW_KEYS_JSON_KEY = 'new_keys'
 USE_OLD_KEYS_JSON_KEY = 'use_old_keys'
+PRIMARY_TO_UNIQUE = 'primary_to_unique'
 OVERWRITE_TABLE_JSON_KEY = 'overwrite_old_table'
 DISABLE_AUTOINCREMENT = 'disable_autoincrement'
 
@@ -132,3 +133,13 @@ class KeyGenerator(Generator):
             return False if res == 0 else True
         else:
             return False
+
+    def primary_to_unique(self, key_list):
+        if self._config.get(PRIMARY_TO_UNIQUE, True):
+            new_key_list = []
+            for key in key_list:
+                if isinstance(key, self._primary_key_class):
+                    parent = key.getParent()
+                    new_key_list.append(self._key_sql_to_jclass(key.toString().replace('PRIMARY', 'UNIQUE'), parent))
+                else:
+                    new_key_list.append(key)

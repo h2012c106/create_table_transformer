@@ -7,6 +7,7 @@
   "deprecated_rows": [],
   "new_keys": [],
   "use_old_keys": true,
+  "primary_to_unique": true,
   "overwrite_old_table": true,
   "disable_autoincrement": true
 }
