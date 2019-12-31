@@ -88,6 +88,8 @@ class Transformer(JavaEnv):
 
         # deal with auto increment
         self._row_generator.disable_autoincrement(create, row_list)
+        # deal with pk
+        self._key_generator.primary_to_unique(key_list)
 
         # deal with table drop
         # choosing either of two generator is okay
